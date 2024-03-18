@@ -1,7 +1,7 @@
 export class LocalStorageTask {
 
 	saveTask(task) {
-		console.log(task);
+		// console.log(task);
 		localStorage.setItem(task.code,JSON.stringify(task));
 	}
 

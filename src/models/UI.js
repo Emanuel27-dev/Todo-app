@@ -8,7 +8,6 @@ export class UI {
 		this.counterCode = (localStorage.getItem('counter') === null) ? 0 :
 		 parseInt(localStorage.getItem('counter'));
 
-
 		// este objeto guardara el codigo de cada componente con su respectivo numero de orden (counter)
 		this.objCodes = (localStorage.getItem('objCodes') === null) ? {} :
 		JSON.parse(localStorage.getItem('objCodes'));
@@ -17,6 +16,11 @@ export class UI {
 	addTask(task) {
 
 		const { taskName, getDate, code, check } = task;
+
+		if(document.querySelector('.container-tasks').children.length === 0) {
+			// cada que no haya componentes, setear el contador
+			this.counterCode = 0;
+		}
 
 		if(taskName.length === 0) return;
 
